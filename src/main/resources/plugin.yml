@@ -1,0 +1,39 @@
+name: ShulkerBoxDrop
+main: axxcee.shulkerboxdrop.ShulkerBoxDropPlugin
+version: 1.0.0
+api-version: 1.21
+description: 方块复制插件 - 10+1模式复制指定方块
+author: axxcee
+
+# 软依赖
+softdepend: [PlaceholderAPI]
+
+# 权限节点
+permissions:
+  shulkerboxdrop.dupe:
+    description: 允许使用/dupe命令
+    default: op
+  shulkerboxdrop.use:
+    description: 允许使用复制功能
+    default: true
+  shulkerboxdrop.toggle:
+    description: 允许切换插件状态
+    default: op
+  shulkerboxdrop.reload:
+    description: 允许重载插件配置
+    default: op
+  shulkerboxdrop.list:
+    description: 查看可复制方块列表
+    default: op
+
+# 命令
+commands:
+  shulkerboxdrop:
+    description: 查看命令帮助
+    aliases: [sbd]
+    usage: /shulkerboxdrop
+    permission: shulkerboxdrop.use
+  dupe:
+    description: 复制手中的物品
+    usage: /dupe
+    permission: shulkerboxdrop.dupe
