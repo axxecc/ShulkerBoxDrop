@@ -44,8 +44,15 @@ public class BlockListener implements Listener {
 
         // 检查事件是否被取消（领地插件或其他插件取消）
         if (event.isCancelled()) {
-            if (config.shouldShowCancelledEventMessage()) {
-                player.sendMessage(lang.getMessage("messages.cancelled-event"));
+            if (player.getGameMode() == GameMode.CREATIVE) {
+                return;
+            } else {
+                if (config.isCopyableBlock(blockType)) {
+                    if (config.shouldShowCancelledEventMessage()) {
+                        player.sendMessage(lang.getMessage("messages.cancelled-event"));
+                    }
+                    return;
+                }
             }
             return;
         }
